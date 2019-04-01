@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         String textoNumero = editTextNumero.getText().toString();
 
         if (textoNumero.isEmpty()) {
-            editTextNumero.setError("Introduza um número entre 1 e 10.");
+            editTextNumero.setError(getString(R.string.introduza_numero));
             editTextNumero.requestFocus();
             return;
         }
@@ -46,13 +46,13 @@ public class MainActivity extends AppCompatActivity {
         try {
             numero = Integer.parseInt(textoNumero);
         } catch (NumberFormatException e) {
-            editTextNumero.setError("Número inválido. Introduza um número entre 1 e 10.");
+            editTextNumero.setError(getString(R.string.numero_invalido));
             editTextNumero.requestFocus();
             return;
         }
 
         if (numero < 1 || numero > 10) {
-            editTextNumero.setError("Número inválido. Introduza um número entre 1 e 10.");
+            editTextNumero.setError(getString(R.string.numero_invalido));
             editTextNumero.requestFocus();
             return;
         }
