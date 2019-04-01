@@ -12,12 +12,12 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Adivinhe o número que estou a pensar (entre 1 e 10)."
+        android:layout_marginStart="@dimen/margem_padrao"
+        android:layout_marginLeft="@dimen/margem_padrao"
+        android:layout_marginTop="@dimen/margem_padrao"
+        android:layout_marginEnd="@dimen/margem_padrao"
+        android:layout_marginRight="@dimen/margem_padrao"
+        android:text="@string/adivinhe_numero"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,11 +27,11 @@
         android:id="@+id/textInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginStart="@dimen/margem_padrao"
+        android:layout_marginLeft="@dimen/margem_padrao"
+        android:layout_marginTop="@dimen/margem_padrao"
+        android:layout_marginEnd="@dimen/margem_padrao"
+        android:layout_marginRight="@dimen/margem_padrao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -40,7 +40,7 @@
             android:id="@+id/editTextNumero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Número" />
+            android:hint="@string/numero" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
