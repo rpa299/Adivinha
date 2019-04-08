@@ -13,7 +13,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
+    private GeradorNumerosAdivinhar geradorNumeros;
+    private int numeroAdivinhar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,12 @@ public class MainActivity extends AppCompatActivity {
                 adivinha();
             }
         });
+
+        geradorNumeros = new GeradorNumerosAdivinhar();
+        numeroAdivinhar = geradorNumeros.getProximoNumeroAdivinhar();
     }
+
+
 
     private void adivinha() {
         EditText editTextNumero = (EditText) findViewById(R.id.editTextNumero);
