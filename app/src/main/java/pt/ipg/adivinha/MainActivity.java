@@ -138,9 +138,24 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(this, getString(R.string.versao), Toast.LENGTH_LONG).show();
+            return true;
+        } else if (id == R.id.action_novo) {
+            actionNovo();
+            return true;
+        } else if (id == R.id.action_estatisticas) {
+            actionEstatisticas();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void actionEstatisticas() {
+        // todo: mostrar estatísticas
+    }
+
+    private void actionNovo() {
+        // todo: perguntar se tem a certeza e iniciar novo jogo
     }
 }
