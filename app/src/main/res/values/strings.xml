@@ -13,4 +13,6 @@
     <string name="jogar_novamente">tentativas. Pretende jogar novamente?</string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
+    <string name="novo">Novo</string>
+    <string name="estatasticas">Estatísticas</string>
 </resources>
