@@ -13,6 +13,6 @@ public class GeradorNumerosAdivinhar {
      * @return um número entre 1 e 10
      */
     public int getProximoNumeroAdivinhar() {
-        return random.nextInt(10); // ERRO: está a gerar entre 0 e 10
+        return random.nextInt(10) + 1;
     }
 }

@@ -14,9 +14,18 @@ public class GeradorNumerosUnitTest {
     public void getProximoNumeroAdivinhar_isCorrect() {
         GeradorNumerosAdivinhar geradorNumeros = new GeradorNumerosAdivinhar();
 
+        int min = 10;
+        int max = 1;
+
         for (int i = 0; i < 100000; i++) {
             int numero = geradorNumeros.getProximoNumeroAdivinhar();
+
+            if (numero < min) min = numero;
+            if (numero > max) max = numero;
             assertTrue(numero >= 1 && numero <= 10);
         }
+
+        assertEquals(1, min);
+        assertEquals(10, max);
     }
 }
