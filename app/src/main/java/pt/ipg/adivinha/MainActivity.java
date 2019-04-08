@@ -1,10 +1,12 @@
 package pt.ipg.adivinha;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -12,12 +14,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private GeradorNumerosAdivinhar geradorNumeros;
     private int numeroAdivinhar;
+    private int tentativas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +39,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         geradorNumeros = new GeradorNumerosAdivinhar();
-        numeroAdivinhar = geradorNumeros.getProximoNumeroAdivinhar();
+        novoJogo();
     }
 
-
+    private void novoJogo() {
+        numeroAdivinhar = geradorNumeros.getProximoNumeroAdivinhar();
+        tentativas = 0;
+        Toast.makeText(this, getString(R.string.novo_jogo), Toast.LENGTH_LONG).show();
+    }
 
     private void adivinha() {
         EditText editTextNumero = (EditText) findViewById(R.id.editTextNumero);
@@ -70,7 +78,48 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void verificaAcertou(int numero) {
-        // todo: verificar se o utilizador acertou no número
+        tentativas++;
+
+        if (numero == numeroAdivinhar) {
+            acertou();
+        } else if (numero < numeroAdivinhar) {
+            Toast.makeText(this, getString(R.string.numero_maior), Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, getString(R.string.numero_menor), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void acertou() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        alertDialogBuilder.setTitle(R.string.acertou);
+        alertDialogBuilder.setMessage(
+                getString(R.string.acertou_ao_fim_de) +
+                tentativas +
+                getString(R.string.jogar_novamente)
+        );
+
+        alertDialogBuilder.setPositiveButton(
+                getString(R.string.sim),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        novoJogo();
+                    }
+                }
+        );
+
+        alertDialogBuilder.setNegativeButton(
+                getString(R.string.nao),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                }
+        );
+
+        alertDialogBuilder.show();
     }
 
     @Override
