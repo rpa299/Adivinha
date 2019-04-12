@@ -18,4 +18,13 @@
     <string name="novo">Novo</string>
     <string name="estatasticas">Estatísticas</string>
     <string name="versao">Adivinha - versão 0.1</string>
+    <string name="title_activity_estatisticas">EstatisticasActivity</string>
+    <string name="titulo_tentativas">Tentativas</string>
+    <string name="titulo_jogos">Jogos</string>
+    <string name="minimo">Mínimo</string>
+    <string name="maximo">Máximo</string>
+    <string name="media">Média</string>
+    <string name="numero">Número</string>
+    <string name="vitorias">Vitórias</string>
+    <string name="derrotas">Derrotas</string>
 </resources>

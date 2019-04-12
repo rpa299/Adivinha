@@ -1,6 +1,7 @@
 package pt.ipg.adivinha;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -192,7 +193,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void actionEstatisticas() {
-        // todo: mostrar estatísticas
+        Intent intent = new Intent(this, EstatisticasActivity.class);
+
+        intent.putExtra("MIN_TENTATIVAS", minTentativasGanhar);
+        intent.putExtra("MAX_TENTATIVAS", maxTentativasGanhar);
+        intent.putExtra("TOTAL_TENTATIVAS", totalTentativasTodosJogos);
+        intent.putExtra("JOGOS", jogos);
+        intent.putExtra("VITORIAS", vitorias);
+        intent.putExtra("DERROTAS", derrotas);
+
+        startActivity(intent);
     }
 
     private void actionNovo() {
