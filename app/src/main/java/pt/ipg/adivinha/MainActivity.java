@@ -19,9 +19,17 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    private static int TENTATIVAS_APOS_QUAIS_PERDE = 5;
+
     private GeradorNumerosAdivinhar geradorNumeros;
     private int numeroAdivinhar;
     private int tentativas;
+    private int minTentativasGanhar = TENTATIVAS_APOS_QUAIS_PERDE;
+    private int maxTentativasGanhar = 0;
+    private int totalTentativasTodosJogos = 0;
+    private int jogos = 0;
+    private int vitorias = 0;
+    private int derrotas = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,22 +90,27 @@ public class MainActivity extends AppCompatActivity {
 
         if (numero == numeroAdivinhar) {
             acertou();
-        } else if (numero < numeroAdivinhar) {
+            return;
+        }
+
+        if (tentativas >= TENTATIVAS_APOS_QUAIS_PERDE) {
+            perdeu();
+            return;
+        }
+
+
+        else if (numero < numeroAdivinhar) {
             Toast.makeText(this, getString(R.string.numero_maior), Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, getString(R.string.numero_menor), Toast.LENGTH_LONG).show();
         }
     }
 
-    private void acertou() {
+    private void PerguntaQuerJogarOutraVez(int recursoTitulo, String mensagem) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
-        alertDialogBuilder.setTitle(R.string.acertou);
-        alertDialogBuilder.setMessage(
-                getString(R.string.acertou_ao_fim_de) +
-                tentativas +
-                getString(R.string.jogar_novamente)
-        );
+        alertDialogBuilder.setTitle(recursoTitulo);
+        alertDialogBuilder.setMessage(mensagem);
 
         alertDialogBuilder.setPositiveButton(
                 getString(R.string.sim),
@@ -120,6 +133,18 @@ public class MainActivity extends AppCompatActivity {
         );
 
         alertDialogBuilder.show();
+    }
+
+    private void acertou() {
+        String mensagem = getString(R.string.acertou_ao_fim_de) + " " + tentativas +
+                        " " + getString(R.string.tentativas) + ". " +
+                        getString(R.string.jogar_novamente);
+
+        PerguntaQuerJogarOutraVez(R.string.acertou, mensagem);
+    }
+
+    private void perdeu() {
+        PerguntaQuerJogarOutraVez(R.string.perdeu, getString(R.string.jogar_novamente));
     }
 
     @Override

@@ -6,11 +6,13 @@
     <string name="introduza_numero">Introduza um número entre 1 e 10.</string>
     <string name="numero_invalido">Número inválido. Introduza um número entre 1 e 10.</string>
     <string name="acertou">Parabéns, acertou</string>
+    <string name="perdeu">Perdeu o jogo</string>
     <string name="numero_maior">O número que estou a pensar é maior</string>
     <string name="numero_menor">O número que estou a pensar é menor</string>
     <string name="novo_jogo">Jogo iniciado. Indique o seu palpite.</string>
     <string name="acertou_ao_fim_de">Acertou ao fim de</string>
-    <string name="jogar_novamente">tentativas. Pretende jogar novamente?</string>
+    <string name="tentativas">tentativas</string>
+    <string name="jogar_novamente">Pretende jogar novamente?</string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
     <string name="novo">Novo</string>
