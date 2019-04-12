@@ -24,7 +24,6 @@
     <string name="minimo">Mínimo</string>
     <string name="maximo">Máximo</string>
     <string name="media">Média</string>
-    <string name="numero">Número</string>
     <string name="vitorias">Vitórias</string>
     <string name="derrotas">Derrotas</string>
 </resources>

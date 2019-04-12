@@ -48,7 +48,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
         geradorNumeros = new GeradorNumerosAdivinhar();
-        novoJogo();
+
+        if (savedInstanceState == null) {
+            novoJogo();
+        } else {
+            // todo: repor o estado do jogo
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        // todo: guardar o estado do jogo
+        super.onSaveInstanceState(outState);
     }
 
     private void novoJogo() {
