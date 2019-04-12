@@ -98,8 +98,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-
-        else if (numero < numeroAdivinhar) {
+        if (numero < numeroAdivinhar) {
             Toast.makeText(this, getString(R.string.numero_maior), Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, getString(R.string.numero_menor), Toast.LENGTH_LONG).show();
@@ -136,6 +135,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void acertou() {
+        if (tentativas < minTentativasGanhar) {
+            minTentativasGanhar = tentativas;
+        }
+
+        if (tentativas > maxTentativasGanhar) {
+            maxTentativasGanhar = tentativas;
+        }
+
+        totalTentativasTodosJogos += tentativas;
+        jogos++;
+        vitorias++;
+
         String mensagem = getString(R.string.acertou_ao_fim_de) + " " + tentativas +
                         " " + getString(R.string.tentativas) + ". " +
                         getString(R.string.jogar_novamente);
@@ -144,6 +155,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void perdeu() {
+        totalTentativasTodosJogos += tentativas;
+        jogos++;
+        derrotas++;
+
         PerguntaQuerJogarOutraVez(R.string.perdeu, getString(R.string.jogar_novamente));
     }
 
