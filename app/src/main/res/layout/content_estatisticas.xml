@@ -104,9 +104,11 @@
         android:id="@+id/textViewMaximo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:textColor="@color/colorAccent"
-        tools:layout_editor_absoluteX="395dp"
-        tools:layout_editor_absoluteY="75dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:text="7" />
 
     <TextView
@@ -126,10 +128,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="12"
         android:textColor="@color/colorAccent"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="12" />
 
     <TextView
         android:id="@+id/textViewVitorias"

@@ -195,12 +195,12 @@ public class MainActivity extends AppCompatActivity {
     private void actionEstatisticas() {
         Intent intent = new Intent(this, EstatisticasActivity.class);
 
-        intent.putExtra("MIN_TENTATIVAS", minTentativasGanhar);
-        intent.putExtra("MAX_TENTATIVAS", maxTentativasGanhar);
-        intent.putExtra("TOTAL_TENTATIVAS", totalTentativasTodosJogos);
-        intent.putExtra("JOGOS", jogos);
-        intent.putExtra("VITORIAS", vitorias);
-        intent.putExtra("DERROTAS", derrotas);
+        intent.putExtra(App.MIN_TENTATIVAS, minTentativasGanhar);
+        intent.putExtra(App.MAX_TENTATIVAS, maxTentativasGanhar);
+        intent.putExtra(App.TOTAL_TENTATIVAS, totalTentativasTodosJogos);
+        intent.putExtra(App.JOGOS, jogos);
+        intent.putExtra(App.VITORIAS, vitorias);
+        intent.putExtra(App.DERROTAS, derrotas);
 
         startActivity(intent);
     }
